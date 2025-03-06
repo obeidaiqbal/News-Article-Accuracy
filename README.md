@@ -1,4 +1,4 @@
-# News-Title-Accuracy
+# News-Article-Accuracy
 This program analyzes the content of a given news article, and informs the user of whether the tile is misleading based on the information present and whether false information is 
 being presented as a fact.
 
