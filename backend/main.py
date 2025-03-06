@@ -1,6 +1,6 @@
 # News Article Misleading Check
-# This script is intended to read through a news article and its title
-# and tell the user whether the article is misleading
+# This script is intended to eventually be able to read through a news article
+# and its title and tell the user whether the articles content is misleading
 # Author: Obeida Iqbal
 
 from transformers import pipeline

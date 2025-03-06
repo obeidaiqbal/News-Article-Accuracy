@@ -9,3 +9,9 @@ To Run the main.py file locally:
   source venv/bin/activate
   python3 main.py
   ```
+To Run the frontend files:
+1. Cd into the project directory, run with live server or npm
+  ```sh
+  npm install --legacy-peer-deps
+  npm start
+  ```
