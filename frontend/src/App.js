@@ -1,35 +1,39 @@
-import { useState } from 'react';
+export default function MyForm() {
+  function handleSubmit(e) {
+    // Prevent the browser from reloading the page
+    e.preventDefault();
 
-export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [age, setAge] = useState('20');
-  const ageAsNumber = Number(age);
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // You can pass formData as a fetch body directly:
+    fetch('/some-api', { method: form.method, body: formData });
+
+    // Or you can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries());
+    console.log(formJson);
+  }
+
   return (
-    <>
+    <form method="post" onSubmit={handleSubmit}>
       <label>
-        First name:
-        <input
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-        />
+        Text input: <input name="myInput" defaultValue="Some initial value" />
       </label>
+      <hr />
       <label>
-        Age:
-        <input
-          value={age}
-          onChange={e => setAge(e.target.value)}
-          type="number"
-        />
-        <button onClick={() => setAge(ageAsNumber + 10)}>
-          Add 10 years
-        </button>
+        Checkbox: <input type="checkbox" name="myCheckbox" defaultChecked={true} />
       </label>
-      {firstName !== '' &&
-        <p>Your name is {firstName}.</p>
-      }
-      {ageAsNumber > 0 &&
-        <p>Your age is {ageAsNumber}.</p>
-      }
-    </>
+      <hr />
+      <p>
+        Radio buttons:
+        <label><input type="radio" name="myRadio" value="option1" /> Option 1</label>
+        <label><input type="radio" name="myRadio" value="option2" defaultChecked={true} /> Option 2</label>
+        <label><input type="radio" name="myRadio" value="option3" /> Option 3</label>
+      </p>
+      <hr />
+      <button type="reset">Reset form</button>
+      <button type="submit">Submit form</button>
+    </form>
   );
 }
