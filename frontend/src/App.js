@@ -18,7 +18,7 @@ export default function MyForm() {
   return (
     <form method="post" onSubmit={handleSubmit}>
       <label>
-        Text input: <input name="myInput" defaultValue="Some initial value" />
+        Article URL Input: <input name="myArticle" defaultValue="Some initial article" />
       </label>
       <hr />
       <label>
